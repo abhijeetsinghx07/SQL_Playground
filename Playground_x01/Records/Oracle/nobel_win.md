@@ -1,5 +1,5 @@
 ___
-> ## Nobel Win Table
+> ## 🔗Nobel Win Table
 
 ```sql
 CREATE TABLE NOBEL_WIN
