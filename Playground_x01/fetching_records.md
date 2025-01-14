@@ -1,6 +1,6 @@
 ```markdown
 
-1: Write a SQL statement that displays all the information about all salespeople. (Table -> Salesman)
+1. Write a SQL statement that displays all the information about all salespeople. (Table -> Salesman)
 
 2: Write a SQL statement to display a string "This is SQL Exercise, Practice and Solution".
 
