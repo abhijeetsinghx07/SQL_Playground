@@ -1,4 +1,4 @@
-```markdown
+
 
 1. Write a SQL statement that displays all the information about all salespeople. (Table -> Salesman)
 
@@ -62,4 +62,4 @@
 
 33. Write a SQL query to retrieve the details of the employees who work in the department 57. Return emp_idno, emp_fname, emp_lname and emp_dept. (Table -> Emp_details)
 
-```
+
