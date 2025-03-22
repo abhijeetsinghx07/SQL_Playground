@@ -1,7 +1,8 @@
+-- Create the database if it doesn't exist
+CREATE DATABASE IF NOT EXISTS employee_db;
 
-CREATE DATABASE IF NOT EXIST employee_db; -- Create databse
-
-USE employee_db; -- use employee database
+-- Use the employee database
+USE employee_db;
 
 -- Create department table
 CREATE TABLE department (
@@ -10,14 +11,13 @@ CREATE TABLE department (
     dep_loc VARCHAR(50)  -- Department Location (More flexible size)
 );
 
--- Insert data in department table 
+-- Insert data into department table 
 INSERT INTO department (dep_id, dep_name, dep_loc) 
 VALUES 
     (1001, 'FINANCE', 'SYDNEY'),
     (2001, 'AUDIT', 'MELBOURNE'),
     (3001, 'MARKETING', 'PERTH'),
     (4001, 'PRODUCTION', 'BRISBANE');
-
 
 -- Create salary_grade table
 CREATE TABLE salary_grade (
@@ -26,8 +26,7 @@ CREATE TABLE salary_grade (
     max_sal DECIMAL(7,2) NOT NULL  
 );
 
-
--- Insert data in salary_grade table 
+-- Insert data into salary_grade table 
 INSERT INTO salary_grade (grade, min_sal, max_sal) 
 VALUES 
     (1, 800, 1300),
@@ -36,22 +35,21 @@ VALUES
     (4, 2101, 3100),
     (5, 3101, 9999);
 
-
 -- Create employee table
 CREATE TABLE employee (
     emp_id INT PRIMARY KEY,
     emp_name VARCHAR(20),
     job_name VARCHAR(20),
-    manager_id INT,
+    manager_id INT,  -- This should reference another employee
     hire_date DATE,
     salary DECIMAL(7,2),
     commission DECIMAL(7,2),
     dep_id INT,  
-    CONSTRAINT fk_employee FOREIGN KEY (dep_id) REFERENCES department(dep_id)
+    CONSTRAINT fk_employee FOREIGN KEY (dep_id) REFERENCES department(dep_id),
+    CONSTRAINT fk_manager FOREIGN KEY (manager_id) REFERENCES employee(emp_id) -- Ensure managers exist
 );
 
-
--- Insert data in employee table 
+-- Insert data into employee table 
 INSERT INTO employee (emp_id, emp_name, job_name, manager_id, hire_date, salary, commission, dep_id) 
 VALUES
     (68319, 'KAYLING', 'PRESIDENT', NULL, '1991-11-18', 6000.00, NULL, 1001),
@@ -68,5 +66,3 @@ VALUES
     (68736, 'ADNRES', 'CLERK', 67858, '1997-05-23', 1200.00, NULL, 2001),
     (69000, 'JULIUS', 'CLERK', 66928, '1991-12-03', 1050.00, NULL, 3001),
     (69324, 'MARKER', 'CLERK', 67832, '1992-01-23', 1400.00, NULL, 1001);
-
-
