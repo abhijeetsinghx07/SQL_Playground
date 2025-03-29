@@ -10,9 +10,9 @@ Sample table: employees
 
 Hint : Write single-row and multiple-row subqueries
 
-Sample table: employees
-Sample table: departments
-Sample table: locations
+> - Sample table: employees
+> - Sample table: departments
+> - Sample table: locations
 
 
 4. Write a MySQL query to find the name (first_name, last_name) of the employees who are managers.
