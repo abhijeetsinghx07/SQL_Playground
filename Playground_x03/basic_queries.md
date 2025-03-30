@@ -3,19 +3,24 @@
       <summary>Click me :)</summary>
 
     ```sql
-    mysql> SELECT *
-    -> FROm movies
-    -> LImIT 5;
+    mysql> SELECT first_name AS "First Name", last_name AS "Last Name"
+        -> FROM emp
+        -> LIMIT 10;
 
-    +----------+---------------------------------------------+-----------+--------------+-------------+----------------+-------------+
-    | movie_id | title                                       | industry  | release_year | imdb_rating | studio         | language_id |
-    +----------+---------------------------------------------+-----------+--------------+-------------+----------------+-------------+
-    |      101 | K.G.F: Chapter 2                            | Bollywood |         2022 |         8.4 | Hombale Films  |           3 |
-    |      102 | Doctor Strange in the multiverse of madness | Hollywood |         2022 |         7.0 | marvel Studios |           5 |
-    |      103 | Thor: The Dark World                        | Hollywood |         2013 |         6.8 | marvel Studios |           5 |
-    |      104 | Thor: Ragnarok                              | Hollywood |         2017 |         7.9 | marvel Studios |           5 |
-    |      105 | Thor: Love and Thunder                      | Hollywood |         2022 |         6.8 | marvel Studios |           5 |
-    +----------+---------------------------------------------+-----------+--------------+-------------+----------------+-------------+
+      +------------+-----------+
+      | First Name | Last Name |
+      +------------+-----------+
+      | Steven     | King      |
+      | Neena      | Kochhar   |
+      | Lex        | De Haan   |
+      | Alexander  | Hunold    |
+      | Bruce      | Ernst     |
+      | David      | Austin    |
+      | Valli      | Pataballa |
+      | Diana      | Lorentz   |
+      | Nancy      | Greenberg |
+      | Daniel     | Faviet    |
+      +------------+-----------+
     ```
     </details> 
 2. Write a query to get unique department ID from employee table.
@@ -23,7 +28,25 @@
       <summary>Click me :)</summary>
 
     ```sql
-    
+    mysql> SELECT DISTINCT dep_id
+        -> FROM emp;
+
+      +--------+
+      | dep_id |
+      +--------+
+      |      0 |
+      |     10 |
+      |     20 |
+      |     30 |
+      |     40 |
+      |     50 |
+      |     60 |
+      |     70 |
+      |     80 |
+      |     90 |
+      |    100 |
+      |    110 |
+      +--------+
     ```
     </details> 
 3. Write a query to get all employee details from the employee table order by first name, descending.
@@ -31,7 +54,25 @@
       <summary>Click me :)</summary>
 
     ```sql
+    mysql> SELECT *
+    -> FROM emp
+    -> ORDER BY first_name DESC
+    -> LIMIT 10;
     
+      +--------+------------+-----------+----------+--------------------+------------+------------+---------+----------+--------+--------+
+      | emp_id | first_name | last_name | email    | phone_no           | hire_date  | job_id     | salary  | comm_pct | mgr_id | dep_id |
+      +--------+------------+-----------+----------+--------------------+------------+------------+---------+----------+--------+--------+
+      |    180 | Winston    | Taylor    | WTAYLOR  | 650.507.9876       | 1987-09-05 | SH_CLERK   | 3200.00 |     0.00 |    120 |     50 |
+      |    171 | William    | Smith     | WSMITH   | 011.44.1343.629268 | 1987-08-27 | SA_REP     | 7400.00 |     0.15 |    148 |     80 |
+      |    206 | William    | Gietz     | WGIETZ   | 515.123.8181       | 1987-10-01 | AC_ACCOUNT | 8300.00 |     0.00 |    205 |    110 |
+      |    195 | Vance      | Jones     | VJONES   | 650.501.4876       | 1987-09-20 | SH_CLERK   | 2800.00 |     0.00 |    123 |     50 |
+      |    106 | Valli      | Pataballa | VPATABAL | 590.423.4560       | 1987-06-23 | IT_PROG    | 4800.00 |     0.00 |    103 |     60 |
+      |    141 | Trenna     | Rajs      | TRAJS    | 650.121.8009       | 1987-07-28 | ST_CLERK   | 3500.00 |     0.00 |    124 |     50 |
+      |    132 | TJ         | Olson     | TJOLSON  | 650.124.8234       | 1987-07-19 | ST_CLERK   | 2100.00 |     0.00 |    121 |     50 |
+      |    190 | Timothy    | Gates     | TGATES   | 650.505.3876       | 1987-09-15 | SH_CLERK   | 2900.00 |     0.00 |    122 |     50 |
+      |    170 | Tayler     | Fox       | TFOX     | 011.44.1343.729268 | 1987-08-26 | SA_REP     | 9600.00 |     0.20 |    148 |     80 |
+      |    203 | Susan      | Mavris    | SMAVRIS  | 515.123.7777       | 1987-09-28 | HR_REP     | 6500.00 |     0.00 |    101 |     40 |
+      +--------+------------+-----------+----------+--------------------+------------+------------+---------+----------+--------+--------+
     ```
     </details> 
 4. Write a query to get the names (first_name, last_name), salary, PF of all the employees (PF is calculated as 15% of salary).
@@ -39,15 +80,65 @@
       <summary>Click me :)</summary>
 
     ```sql
-    
+    mysql> SELECT first_name, last_name, salary, salary*15/100 AS PF
+        -> FROM emp
+        -> LIMIT 15;
+
+      +-------------+-----------+----------+-------------+
+      | first_name  | last_name | salary   | PF          |
+      +-------------+-----------+----------+-------------+
+      | Steven      | King      | 24000.00 | 3600.000000 |
+      | Neena       | Kochhar   | 17000.00 | 2550.000000 |
+      | Lex         | De Haan   | 17000.00 | 2550.000000 |
+      | Alexander   | Hunold    |  9000.00 | 1350.000000 |
+      | Bruce       | Ernst     |  6000.00 |  900.000000 |
+      | David       | Austin    |  4800.00 |  720.000000 |
+      | Valli       | Pataballa |  4800.00 |  720.000000 |
+      | Diana       | Lorentz   |  4200.00 |  630.000000 |
+      | Nancy       | Greenberg | 12000.00 | 1800.000000 |
+      | Daniel      | Faviet    |  9000.00 | 1350.000000 |
+      | John        | Chen      |  8200.00 | 1230.000000 |
+      | Ismael      | Sciarra   |  7700.00 | 1155.000000 |
+      | Jose Manuel | Urman     |  7800.00 | 1170.000000 |
+      | Luis        | Popp      |  6900.00 | 1035.000000 |
+      | Den         | Raphaely  | 11000.00 | 1650.000000 |
+      +-------------+-----------+----------+-------------+
     ```
     </details> 
-5. Write a query to get the employee ID, names (first_name, last_name), salary in ascending order of salary.
+5. Write a query to get the employee ID, (first_name, last_name) together, salary in ascending order.
     <details>
       <summary>Click me :)</summary>
 
     ```sql
-    
+    mysql> SELECT emp_id, CONCAT(first_name,' ',last_name) AS Name, Salary
+        -> FROM emp
+        -> ORDER BY salary ASC
+        -> LIMIT 20;
+
+      +--------+-------------------+---------+
+      | emp_id | Name              | Salary  |
+      +--------+-------------------+---------+
+      |    132 | TJ Olson          | 2100.00 |
+      |    128 | Steven Markle     | 2200.00 |
+      |    136 | Hazel Philtanker  | 2200.00 |
+      |    135 | Ki Gee            | 2400.00 |
+      |    127 | James Landry      | 2400.00 |
+      |    131 | James Marlow      | 2500.00 |
+      |    182 | Martha Sullivan   | 2500.00 |
+      |    140 | Joshua Patel      | 2500.00 |
+      |    191 | Randall Perkins   | 2500.00 |
+      |    144 | Peter Vargas      | 2500.00 |
+      |    119 | Karen Colmenares  | 2500.00 |
+      |    143 | Randall Matos     | 2600.00 |
+      |    198 | Donald OConnell   | 2600.00 |
+      |    199 | Douglas Grant     | 2600.00 |
+      |    118 | Guy Himuro        | 2600.00 |
+      |    126 | Irene Mikkilineni | 2700.00 |
+      |    139 | John Seo          | 2700.00 |
+      |    183 | Girard Geoni      | 2800.00 |
+      |    117 | Sigal Tobias      | 2800.00 |
+      |    130 | Mozhe Atkinson    | 2800.00 |
+      +--------+-------------------+---------+
     ```
     </details> 
 6. Write a query to get the total salaries payable to employees.
