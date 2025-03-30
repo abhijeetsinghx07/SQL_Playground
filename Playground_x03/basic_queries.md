@@ -146,7 +146,13 @@
       <summary>Click me :)</summary>
 
     ```sql
-    
+    mysql> SELECT SUM(Salary) AS Total
+        -> FROM emp;
+      +-----------+
+      | Total     |
+      +-----------+
+      | 691400.00 |
+      +-----------+
     ```
     </details> 
 7. Write a query to get the maximum and minimum salary from employees table.
@@ -154,7 +160,13 @@
       <summary>Click me :)</summary>
 
     ```sql
-    
+    mysql> SELECT MAX(salary) AS "Max Salary", MIN(salary) AS "Min Salary"
+        -> FROM emp;
+      +------------+------------+
+      | Max Salary | Min Salary |
+      +------------+------------+
+      |   24000.00 |    2100.00 |
+      +------------+------------+
     ```
     </details> 
 8. Write a query to get the average salary and number of employees in the employees table.
@@ -162,7 +174,13 @@
       <summary>Click me :)</summary>
 
     ```sql
-    
+    mysql> SELECT AVG(salary) AS "Average Salary", COUNT(*) AS "No. of employees"
+        -> FROM emp;
+      +----------------+------------------+
+      | Average Salary | No. of employees |
+      +----------------+------------------+
+      |    6461.682243 |              107 |
+      +----------------+------------------+
     ```
     </details> 
 9. Write a query to get the number of employees working with the company.
@@ -170,7 +188,13 @@
       <summary>Click me :)</summary>
 
     ```sql
-    
+    mysql> SELECT COUNT(*) AS "Number of employees"
+        -> FROM emp;
+      +---------------------+
+      | Number of employees |
+      +---------------------+
+      |                 107 |
+      +---------------------+
     ```
     </details> 
 10. Write a query to get the number of jobs available in the employees table.
@@ -178,7 +202,13 @@
       <summary>Click me :)</summary>
 
     ```sql
-    
+    mysql> SELECT COUNT(DISTINCT job_id) AS "Number of jobs"
+        -> FROM emp;
+      +----------------+
+      | Number of jobs |
+      +----------------+
+      |             19 |
+      +----------------+
     ```
     </details> 
 11. Write a query get all first name from employees table in upper case.
