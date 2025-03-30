@@ -148,6 +148,7 @@
     ```sql
     mysql> SELECT SUM(Salary) AS Total
         -> FROM emp;
+
       +-----------+
       | Total     |
       +-----------+
@@ -162,6 +163,7 @@
     ```sql
     mysql> SELECT MAX(salary) AS "Max Salary", MIN(salary) AS "Min Salary"
         -> FROM emp;
+
       +------------+------------+
       | Max Salary | Min Salary |
       +------------+------------+
@@ -176,6 +178,7 @@
     ```sql
     mysql> SELECT AVG(salary) AS "Average Salary", COUNT(*) AS "No. of employees"
         -> FROM emp;
+
       +----------------+------------------+
       | Average Salary | No. of employees |
       +----------------+------------------+
@@ -190,6 +193,7 @@
     ```sql
     mysql> SELECT COUNT(*) AS "Number of employees"
         -> FROM emp;
+
       +---------------------+
       | Number of employees |
       +---------------------+
@@ -204,6 +208,7 @@
     ```sql
     mysql> SELECT COUNT(DISTINCT job_id) AS "Number of jobs"
         -> FROM emp;
+        
       +----------------+
       | Number of jobs |
       +----------------+
