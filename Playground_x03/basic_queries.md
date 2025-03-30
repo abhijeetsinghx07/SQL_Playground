@@ -1,5 +1,23 @@
-1. Write a query to display the names (first_name, last_name) using alias name "First Name", "Last Name".
+1. Write a query to display the names (first_name, last_name) using alias name "First Name", "Last Name". 
+    <details>
+      <summary>Click Me 😉</summary>
 
+    ```sql
+    mysql> SELECT *
+    -> FROM movies
+    -> LIMIT 5;
+    
+    +----------+---------------------------------------------+-----------+--------------+-------------+----------------+-------------+
+    | movie_id | title                                       | industry  | release_year | imdb_rating | studio         | language_id |
+    +----------+---------------------------------------------+-----------+--------------+-------------+----------------+-------------+
+    |      101 | K.G.F: Chapter 2                            | Bollywood |         2022 |         8.4 | Hombale Films  |           3 |
+    |      102 | Doctor Strange in the Multiverse of Madness | Hollywood |         2022 |         7.0 | Marvel Studios |           5 |
+    |      103 | Thor: The Dark World                        | Hollywood |         2013 |         6.8 | Marvel Studios |           5 |
+    |      104 | Thor: Ragnarok                              | Hollywood |         2017 |         7.9 | Marvel Studios |           5 |
+    |      105 | Thor: Love and Thunder                      | Hollywood |         2022 |         6.8 | Marvel Studios |           5 |
+    +----------+---------------------------------------------+-----------+--------------+-------------+----------------+-------------+
+    ```
+    </details> 
 2. Write a query to get unique department ID from employee table.
 
 3. Write a query to get all employee details from the employee table order by first name, descending.
